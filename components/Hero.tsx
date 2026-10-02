@@ -24,26 +24,28 @@ export function Hero({ onOpenPrototypeModal }: HeroProps) {
           {/* Left Column: Headline & Value Prop */}
           <div className="lg:col-span-7 flex flex-col items-start">
             {/* Tech Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-mono mb-6 backdrop-blur-md shadow-inner">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-orange-500/15 via-amber-500/10 to-transparent border border-orange-500/30 text-orange-400 text-xs font-mono mb-6 backdrop-blur-md shadow-inner">
               <Sparkles className="w-3.5 h-3.5 text-orange-400 animate-spin" style={{ animationDuration: '8s' }} />
-              <span>PRECISION FORCED-DRAFT BIOMASS PLATFORM</span>
+              <span className="font-extrabold text-white tracking-wider">HELIOS</span>
+              <span className="text-neutral-600">/</span>
+              <span>SMART FORCED-DRAFT BIOMASS PLATFORM</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.05] mb-6">
-              Smarter Fire.{' '}
+              NEXMANCER{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-300">
-                Cleaner Heat.
+                HELIOS
               </span>
-              <br />
-              Zero Smoke.
+              .<br />
+              Smarter Fire. Zero Smoke.
             </h1>
 
             {/* Description */}
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl mb-8 font-light">
-              Experience the evolution of solid fuel cooking. NEXMANCER pairs active BLDC forced-draft
-              aerodynamics with preheated secondary gasification and intelligent thermocouple feedback — delivering
-              unprecedented thermal efficiency and virtually smokeless combustion.
+              Experience the evolution of solid fuel cooking with the <strong className="text-white font-semibold">NEXMANCER Helios</strong>. 
+              Engineered with active BLDC forced-draft aerodynamics, preheated secondary gasification, and intelligent 
+              thermocouple regulation — delivering unprecedented thermal efficiency and virtually smokeless combustion.
             </p>
 
             {/* Key Value Points */}
@@ -147,7 +149,7 @@ export function Hero({ onOpenPrototypeModal }: HeroProps) {
             >
               <span className="flex items-center gap-2">
                 <Gauge className="w-3.5 h-3.5 text-orange-400" />
-                View Full 4K Engineering Cutaway & Blueprint
+                Inspect 15-Part CAD Exploded View & 4K Cutaway
               </span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>

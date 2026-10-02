@@ -187,7 +187,7 @@ export function SpecsTable({ onOpenPrototypeModal }: { onOpenPrototypeModal: () 
                   <th className="p-4 sm:p-5 text-neutral-400">Traditional 3-Stone</th>
                   <th className="p-4 sm:p-5 text-neutral-400">Natural Draft Rocket</th>
                   <th className="p-4 sm:p-5 text-orange-400 font-bold bg-orange-500/10 border-x border-orange-500/30">
-                    NEXMANCER Smart Forced-Draft
+                    NEXMANCER Helios (Smart Forced-Draft)
                   </th>
                 </tr>
               </thead>

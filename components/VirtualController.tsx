@@ -66,7 +66,7 @@ export function VirtualController() {
               <div className="flex items-center gap-3">
                 <div className="w-3 h-3 rounded-full bg-emerald-400 shadow-md shadow-emerald-500/50 animate-pulse" />
                 <span className="text-xs font-mono text-neutral-300 font-bold uppercase tracking-wider">
-                  NEXMANCER VIRTUAL TELEMETRY CONSOLE
+                  NEXMANCER HELIOS TELEMETRY CONSOLE
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -101,7 +101,7 @@ export function VirtualController() {
                   <div className="flex items-center justify-between text-xs text-cyan-400/90 pb-3 border-b border-cyan-950">
                     <span className="flex items-center gap-1.5 font-bold tracking-wider">
                       <Activity className="w-3.5 h-3.5 animate-pulse text-cyan-400" />
-                      NEXMANCER PROTO-2
+                      HELIOS PROTO-2
                     </span>
                     <div className="flex items-center gap-3 text-[11px]">
                       <span className="text-emerald-400 font-semibold">● 12.4V DC</span>
