@@ -9,17 +9,51 @@ interface HeroProps {
 }
 
 export function Hero({ onOpenPrototypeModal }: HeroProps) {
+  // Natural glowing embers rising through the hero section
+  const embers = [
+    { left: '12%', bottom: '4%', size: 3, delay: '0.2s', duration: '4.5s', color: '#ff6a1a' },
+    { left: '24%', bottom: '8%', size: 4, delay: '1.4s', duration: '5.2s', color: '#f59e0b' },
+    { left: '38%', bottom: '3%', size: 5, delay: '0.7s', duration: '3.9s', color: '#ea580c' },
+    { left: '52%', bottom: '11%', size: 3, delay: '2.8s', duration: '4.8s', color: '#fcd34d' },
+    { left: '64%', bottom: '6%', size: 4, delay: '1.9s', duration: '4.2s', color: '#ff8c38' },
+    { left: '76%', bottom: '5%', size: 3, delay: '3.3s', duration: '5.6s', color: '#fb923c' },
+    { left: '86%', bottom: '8%', size: 4, delay: '1.0s', duration: '4.4s', color: '#f59e0b' },
+    { left: '46%', bottom: '15%', size: 3, delay: '2.2s', duration: '4.9s', color: '#fdba74' },
+    { left: '70%', bottom: '14%', size: 4, delay: '3.6s', duration: '3.7s', color: '#ea580c' },
+    { left: '92%', bottom: '12%', size: 3, delay: '0.5s', duration: '5.0s', color: '#ff5722' },
+  ];
+
   return (
     <section className="relative min-h-[90vh] pt-32 pb-20 flex flex-col justify-center overflow-hidden bg-gradient-to-b from-[#090c0f] via-[#0e1217] to-[#090c0f]">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gradient-to-tr from-orange-600/15 via-amber-500/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      {/* Dynamic natural flame glow pulse */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[550px] bg-gradient-to-tr from-orange-600/25 via-amber-500/15 to-transparent rounded-full blur-[140px] pointer-events-none animate-flame-glow" />
       <div className="absolute top-1/3 -right-20 w-[450px] h-[450px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute -left-20 bottom-10 w-[350px] h-[350px] bg-orange-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -left-20 bottom-10 w-[350px] h-[350px] bg-orange-600/15 rounded-full blur-[100px] pointer-events-none animate-flame-glow" style={{ animationDelay: '2s' }} />
 
       {/* Grid line overlay for technical vibe */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      {/* Natural Rising Ember Particles Layer */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+        {embers.map((ember, i) => (
+          <span
+            key={i}
+            className="absolute rounded-full pointer-events-none"
+            style={{
+              left: ember.left,
+              bottom: ember.bottom,
+              width: `${ember.size}px`,
+              height: `${ember.size}px`,
+              backgroundColor: ember.color,
+              boxShadow: `0 0 ${ember.size * 2}px ${ember.size}px ${ember.color}`,
+              animation: `emberFloat ${ember.duration} ease-in-out infinite`,
+              animationDelay: ember.delay,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Headline & Value Prop */}
           <div className="lg:col-span-7 flex flex-col items-start">
@@ -94,12 +128,15 @@ export function Hero({ onOpenPrototypeModal }: HeroProps) {
 
           {/* Right Column: Studio Render & Live Telemetry HUD */}
           <div className="lg:col-span-5 relative mt-6 lg:mt-0">
-            <div className="relative rounded-2xl overflow-hidden border border-neutral-800/90 bg-neutral-950/70 shadow-2xl shadow-orange-950/30 group">
+            {/* Ambient flame halo behind the hardware */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-orange-600/25 via-amber-500/20 to-transparent rounded-3xl blur-2xl animate-flame-glow pointer-events-none" />
+
+            <div className="relative rounded-2xl overflow-hidden border border-neutral-800/90 bg-neutral-950/70 shadow-2xl shadow-orange-950/40 group">
               {/* Product Image Frame */}
               <div className="relative aspect-[4/3] w-full">
                 <Image
                   src="/images/stove-hero.jpg"
-                  alt="NEXMANCER Smart Biomass Stove studio render"
+                  alt="NEXMANCER Helios Smart Biomass Stove studio render"
                   fill
                   priority
                   className="object-cover object-center group-hover:scale-102 transition-transform duration-700"
@@ -107,17 +144,30 @@ export function Hero({ onOpenPrototypeModal }: HeroProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090c0f] via-transparent to-transparent opacity-80" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl" />
+
+                {/* Subtle convection heat shimmer trails over the pot */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-40 h-20 pointer-events-none opacity-40">
+                  <svg viewBox="0 0 100 50" className="w-full h-full stroke-amber-400 fill-none stroke-[1.5]">
+                    <path d="M30,45 Q25,25 35,5" className="animate-flame-flicker" />
+                    <path d="M50,48 Q55,28 48,2" className="animate-flame-flicker" style={{ animationDelay: '0.8s' }} />
+                    <path d="M70,45 Q65,22 72,6" className="animate-flame-flicker" style={{ animationDelay: '1.4s' }} />
+                  </svg>
+                </div>
               </div>
 
-              {/* Floating Telemetry Tag: Temp */}
+              {/* Floating Telemetry Tag: Temp with natural dancing flame */}
               <div className="absolute top-4 left-4 bg-neutral-900/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-lg flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400">
-                  <Flame className="w-4 h-4" />
+                <div className="w-8 h-8 rounded-lg bg-orange-500/20 border border-orange-500/40 flex items-center justify-center text-orange-400 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-orange-500/30 to-transparent animate-pulse" />
+                  <Flame className="w-4 h-4 text-orange-400 animate-flame-flicker relative z-10" />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono uppercase text-neutral-400">Combustion Core</div>
+                  <div className="text-[10px] font-mono uppercase text-neutral-400 flex items-center gap-1.5">
+                    <span>Combustion Core</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping" />
+                  </div>
                   <div className="text-sm font-bold font-mono text-white flex items-center gap-1.5">
-                    285°C <span className="text-[10px] text-emerald-400 font-normal">● STABLE</span>
+                    285°C <span className="text-[10px] text-emerald-400 font-normal">● CLEAN VORTEX</span>
                   </div>
                 </div>
               </div>
@@ -125,7 +175,7 @@ export function Hero({ onOpenPrototypeModal }: HeroProps) {
               {/* Floating Telemetry Tag: Blower */}
               <div className="absolute bottom-4 right-4 bg-neutral-900/90 backdrop-blur-md border border-white/10 rounded-xl p-3 shadow-lg flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400">
-                  <Wind className="w-4 h-4" />
+                  <Wind className="w-4 h-4 animate-spin" style={{ animationDuration: '6s' }} />
                 </div>
                 <div>
                   <div className="text-[10px] font-mono uppercase text-neutral-400">BLDC Forced Air</div>
@@ -137,7 +187,7 @@ export function Hero({ onOpenPrototypeModal }: HeroProps) {
 
               {/* Floating Hardware Chip: Refractory */}
               <div className="absolute bottom-4 left-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-neutral-900/80 backdrop-blur-md border border-white/10 text-[11px] font-mono text-neutral-300">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
+                <span className="w-2 h-2 rounded-full bg-amber-400 shadow-sm shadow-amber-400" />
                 Refractory Insulated Core
               </div>
             </div>

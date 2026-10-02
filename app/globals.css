@@ -95,3 +95,83 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .animate-fadeIn {
   animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* Natural Fire & Rising Embers */
+@keyframes emberFloat {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-160px) translateX(14px) scale(0.85);
+    opacity: 0.75;
+  }
+  75% {
+    transform: translateY(-270px) translateX(-10px) scale(0.6);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-400px) translateX(18px) scale(0.2);
+    opacity: 0;
+  }
+}
+
+@keyframes flameGlowPulse {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.22;
+  }
+  35% {
+    transform: scale(1.18) translate(8px, -10px);
+    opacity: 0.38;
+  }
+  70% {
+    transform: scale(1.08) translate(-6px, 6px);
+    opacity: 0.28;
+  }
+}
+
+@keyframes flameFlicker {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1) rotate(0deg);
+  }
+  20% {
+    transform: scaleY(1.08) scaleX(0.95) rotate(-1.5deg);
+  }
+  40% {
+    transform: scaleY(0.94) scaleX(1.03) rotate(1deg);
+  }
+  60% {
+    transform: scaleY(1.12) scaleX(0.92) rotate(-1deg);
+  }
+  80% {
+    transform: scaleY(0.98) scaleX(1.02) rotate(1.5deg);
+  }
+}
+
+@keyframes heatShimmer {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(-20px) scaleX(1.12);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-45px) scaleX(0.92);
+    opacity: 0;
+  }
+}
+
+.animate-flame-glow {
+  animation: flameGlowPulse 4.5s ease-in-out infinite;
+}
+
+.animate-flame-flicker {
+  animation: flameFlicker 2.2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
