@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+@source "../app";
+@source "../components";
+
+:root {
+  --bg-dark: #090c0f;
+  --panel-dark: #12161b;
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --orange-accent: #ff6a1a;
+  --amber-accent: #f59e0b;
+  --cyan-accent: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-dark);
+  color: #f3f4f6;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090c0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #232a32;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6a1a;
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #1c2229;
+  border-radius: 9999px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ff6a1a;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 106, 26, 0.5);
+  border: 2px solid #ffffff;
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
